@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ivo C. Pintéus</title>
+<meta name="description" content="Ivo C. Pintéus: linguist, technologist and team lead. Built and led NLP workflows and cross-functional teams at Google scale. Based in Cascais, Portugal.">
+<meta name="theme-color" content="#F2F5F7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0B1622" media="(prefers-color-scheme: dark)">
+<meta property="og:title" content="Ivo C. Pintéus">
+<meta property="og:description" content="Linguistics, technology and leadership. NLP workflows and cross-functional teams at scale.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ipinteus.com/">
+<link rel="canonical" href="https://ipinteus.com/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232150D6'/%3E%3Ctext x='32' y='43' font-family='Arial,sans-serif' font-size='30' font-weight='700' text-anchor='middle' fill='white'%3EIP%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Ivo C. Pintéus",
+  "url": "https://ipinteus.com/",
+  "email": "mailto:ipinteus@gmail.com",
+  "sameAs": ["https://www.linkedin.com/in/ipinteus"],
+  "address": { "@type": "PostalAddress", "addressLocality": "Cascais", "addressCountry": "PT" },
+  "knowsLanguage": ["pt", "en", "es", "fr"],
+  "alumniOf": "Faculdade de Letras da Universidade de Lisboa"
+}
+</script>
+
+<style>
+  :root {
+    --bg: #F2F5F7;
+    --surface: #E6ECF2;
+    --ink: #0D1B2A;
+    --muted: #526273;
+    --line: #CBD5DE;
+    --accent: #2150D6;
+    --accent-ink: #FFFFFF;
+    --display: "Bricolage Grotesque", "Arial Narrow", system-ui, sans-serif;
+    --body: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --gutter: clamp(1.25rem, 5vw, 3.5rem);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0B1622;
+      --surface: #14263A;
+      --ink: #E8EEF4;
+      --muted: #9AABBC;
+      --line: #25384D;
+      --accent: #8EAEFF;
+      --accent-ink: #0B1622;
+    }
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+  .sr-only {
+    position: absolute; width: 1px; height: 1px; overflow: hidden;
+    clip: rect(0 0 0 0); white-space: nowrap;
+  }
+  .skip {
+    position: absolute; left: var(--gutter); top: -4rem;
+    background: var(--accent); color: var(--accent-ink);
+    padding: .6rem 1rem; border-radius: 8px; z-index: 10;
+  }
+  .skip:focus { top: 1rem; }
+
+  .wrap { max-width: 1120px; margin-inline: auto; padding-inline: var(--gutter); }
+
+  /* Top bar */
+  .bar { display: flex; align-items: center; justify-content: space-between; padding-block: 1.5rem; }
+  .mark {
+    font-family: var(--display); font-weight: 700; font-stretch: 80%;
+    font-size: 1.25rem; text-decoration: none; letter-spacing: .01em;
+  }
+  .bar nav { display: flex; gap: clamp(1rem, 3vw, 2rem); font-size: .95rem; }
+  .bar nav a { text-decoration: none; color: var(--muted); padding-block: .25rem; }
+  .bar nav a:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 2px; text-decoration-color: var(--accent); }
+  @media (max-width: 560px) { .bar nav a.optional { display: none; } }
+
+  /* Hero */
+  .hero { padding-block: clamp(3rem, 9vw, 7rem) clamp(3rem, 8vw, 6rem); }
+  .greet {
+    display: inline-grid;
+    font-family: var(--display); font-weight: 600; font-stretch: 85%;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    color: var(--accent);
+    margin: 0 0 .5rem;
+    line-height: 1.2;
+  }
+  .greet span { grid-area: 1 / 1; opacity: 0; animation: greet 12s infinite backwards; }
+  .greet span:nth-child(2) { animation-delay: 3s; }
+  .greet span:nth-child(3) { animation-delay: 6s; }
+  .greet span:nth-child(4) { animation-delay: 9s; }
+  @keyframes greet {
+    0%   { opacity: 0; transform: translateY(.4em); }
+    4%   { opacity: 1; transform: none; }
+    22%  { opacity: 1; transform: none; }
+    26%  { opacity: 0; transform: translateY(-.4em); }
+    100% { opacity: 0; }
+  }
+  .hero h1 {
+    margin: 0;
+    font-family: var(--display);
+    font-weight: 700;
+    font-stretch: 75%;
+    font-size: clamp(3.4rem, 15.5vw, 11.5rem);
+    line-height: .88;
+    letter-spacing: -.015em;
+  }
+  .hero h1 .initial { color: var(--accent); }
+  .lede {
+    max-width: 34ch;
+    margin: clamp(1.75rem, 4vw, 3rem) 0 0;
+    font-family: var(--display); font-weight: 500; font-stretch: 90%;
+    font-size: clamp(1.5rem, 3.4vw, 2.25rem);
+    line-height: 1.2;
+    letter-spacing: -.005em;
+  }
+  .where { margin: 1.25rem 0 0; color: var(--muted); }
+  .actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2rem; }
+  .btn {
+    display: inline-flex; align-items: center;
+    padding: .8rem 1.35rem; border-radius: 999px;
+    font-weight: 600; text-decoration: none; font-size: 1rem;
+    border: 2px solid var(--ink);
+    transition: background-color .15s, color .15s, border-color .15s;
+  }
+  .btn:hover { background: var(--ink); color: var(--bg); }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+  .btn.primary:hover { background: var(--ink); border-color: var(--ink); color: var(--bg); }
+
+  /* Sections */
+  section.block {
+    border-top: 1px solid var(--line);
+    padding-block: clamp(2.5rem, 6vw, 4.5rem);
+  }
+  .block .grid { display: grid; gap: 1.5rem; }
+  .block h2 {
+    margin: 0;
+    font-family: var(--display); font-weight: 700; font-stretch: 85%;
+    font-size: clamp(1.75rem, 3.2vw, 2.25rem);
+    line-height: 1.1;
+  }
+  @media (min-width: 860px) {
+    .block .grid { grid-template-columns: 220px 1fr; gap: 3rem; }
+    .block h2 { position: sticky; top: 1.5rem; align-self: start; }
+  }
+
+  .profile p { margin: 0 0 1rem; max-width: 62ch; }
+  .profile p:last-child { margin-bottom: 0; }
+  .profile strong { font-weight: 700; box-shadow: inset 0 -.4em 0 color-mix(in srgb, var(--accent) 22%, transparent); }
+
+  /* Timeline */
+  .timeline { list-style: none; margin: 0; padding: 0 0 0 1.75rem; border-left: 2px solid var(--line); }
+  .role { position: relative; padding-bottom: 2.5rem; }
+  .role:last-child { padding-bottom: 0; }
+  .role::before {
+    content: ""; position: absolute; left: calc(-1.75rem - 7px); top: .55rem;
+    width: 12px; height: 12px; border-radius: 50%;
+    background: var(--bg); border: 3px solid var(--accent);
+  }
+  .role h3 {
+    margin: 0; font-family: var(--display); font-weight: 650; font-stretch: 90%;
+    font-size: clamp(1.2rem, 2.2vw, 1.45rem); line-height: 1.25;
+  }
+  .meta { display: flex; flex-wrap: wrap; gap: .1rem 1rem; margin: .25rem 0 .75rem; font-size: .95rem; color: var(--muted); }
+  .meta .org { color: var(--accent); font-weight: 700; }
+  .role ul { margin: 0; padding-left: 1.1rem; max-width: 68ch; }
+  .role li { margin-bottom: .45rem; }
+  .role li::marker { color: var(--accent); }
+
+  /* Education */
+  .edu { display: grid; gap: 1.75rem; }
+  .edu h3 { margin: 0; font-family: var(--display); font-weight: 650; font-stretch: 90%; font-size: 1.25rem; line-height: 1.25; }
+  .edu p { margin: .25rem 0 0; max-width: 62ch; }
+  .edu .meta { margin: .2rem 0 .5rem; }
+
+  /* Skills */
+  .skills { display: grid; gap: 2rem; }
+  @media (min-width: 700px) { .skills { grid-template-columns: 1fr 1fr; } }
+  .skills h3 { margin: 0 0 .75rem; font-family: var(--display); font-weight: 650; font-stretch: 90%; font-size: 1.2rem; }
+  .skills .wide { grid-column: 1 / -1; }
+  .tags { display: flex; flex-wrap: wrap; gap: .5rem; list-style: none; margin: 0; padding: 0; }
+  .tags li { background: var(--surface); border-radius: 8px; padding: .3rem .7rem; font-size: .95rem; }
+  .langs { list-style: none; margin: 0; padding: 0; display: grid; gap: .35rem; max-width: 30rem; }
+  .langs li { display: flex; justify-content: space-between; gap: 1rem; border-bottom: 1px dashed var(--line); padding-bottom: .35rem; }
+  .langs span { color: var(--muted); }
+
+  /* Before */
+  .before { display: grid; gap: 1.5rem; }
+  @media (min-width: 700px) { .before { grid-template-columns: 1fr 1fr; } }
+  .before h3 { margin: 0; font-family: var(--display); font-weight: 650; font-stretch: 90%; font-size: 1.2rem; }
+  .before .meta { margin: .1rem 0 .5rem; }
+  .before p { margin: 0; }
+
+  /* Contact */
+  .contact { padding-block: clamp(3.5rem, 9vw, 7rem); }
+  .contact h2 {
+    margin: 0; font-family: var(--display); font-weight: 700; font-stretch: 75%;
+    font-size: clamp(2.8rem, 10vw, 7rem); line-height: .95;
+  }
+  .contact .mail {
+    display: inline-block; margin-top: 1.25rem;
+    font-family: var(--display); font-weight: 600; font-stretch: 90%;
+    font-size: clamp(1.4rem, 4vw, 2.4rem);
+    color: var(--accent); text-underline-offset: 8px; text-decoration-thickness: 3px;
+    overflow-wrap: anywhere;
+  }
+  .contact .mail:hover { color: var(--ink); }
+  .contact p { margin: 1rem 0 0; color: var(--muted); }
+
+  footer { border-top: 1px solid var(--line); padding-block: 1.5rem 2.5rem; color: var(--muted); font-size: .9rem; }
+  footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem 1.5rem; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .greet span { animation: none; opacity: 0; }
+    .greet span:first-child { opacity: 1; }
+    .btn { transition: none; }
+  }
+
+  @media print {
+    :root { --bg: #fff; --surface: #eee; --ink: #000; --muted: #444; --line: #bbb; --accent: #1a3fb0; }
+    .bar nav, .actions, .skip, .contact .mail + p { display: none; }
+    .hero { padding-block: 1rem 1.5rem; }
+    .hero h1 { font-size: 4rem; }
+    section.block { break-inside: avoid-page; padding-block: 1.5rem; }
+    .role { break-inside: avoid; }
+    .block h2 { position: static; }
+    .greet span:not(:first-child) { display: none; }
+    .greet span:first-child { opacity: 1; animation: none; }
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="wrap">
+  <header class="bar">
+    <a class="mark" href="#top">ipinteus.com</a>
+    <nav aria-label="Sections">
+      <a href="#experience">Experience</a>
+      <a class="optional" href="#education">Education</a>
+      <a class="optional" href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+</div>
+
+<main id="main">
+  <div class="wrap hero" id="top">
+    <p class="greet" aria-hidden="true">
+      <span>Olá</span><span>Hello</span><span>Hola</span><span>Bonjour</span>
+    </p>
+    <h1><span class="sr-only">Hello, I'm </span>Ivo C. <span class="initial">Pintéus</span></h1>
+    <p class="lede">I work where language, technology and leadership meet.</p>
+    <p class="where">Based in Cascais, Portugal. Open to roles in NLP, localisation and technical operations.</p>
+    <div class="actions">
+      <a class="btn primary" href="mailto:ipinteus@gmail.com">Email me</a>
+      <a class="btn" href="https://www.linkedin.com/in/ipinteus" rel="noopener">LinkedIn</a>
+      <a class="btn" href="Ivo-Pinteus-CV.pdf" download>Download CV</a>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <section class="block" aria-labelledby="h-profile">
+      <div class="grid">
+        <h2 id="h-profile">Profile</h2>
+        <div class="profile">
+          <p>Versatile, results-driven professional at the critical intersection of <strong>Linguistics</strong>, <strong>Technology</strong> and <strong>Leadership</strong>.</p>
+          <p>I built and led high-impact NLP workflows, delivered technical solutions at scale, and guided multiple cross-functional teams to success.</p>
+          <p>I'm ready for roles where tech, language and operational expertise collide to create <strong>real-world impact</strong>.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="experience" aria-labelledby="h-exp">
+      <div class="grid">
+        <h2 id="h-exp">Experience</h2>
+        <ol class="timeline">
+          <li class="role">
+            <h3>Google SLS Team Lead</h3>
+            <p class="meta"><span class="org">Qualitest</span><span>Dec 2019 to Sep 2024</span></p>
+            <ul>
+              <li>Led three SLS teams (46 direct reports, 24 nationalities, 5 time zones), balancing horizontal support with vertical product ownership.</li>
+              <li>Served as primary operational liaison, aligning directly with SLS program managers, NLP infrastructure engineers and other Google stakeholders.</li>
+              <li>Mentored junior team leads and analysts, standardised workflows, coordinated onboarding, designed QA metrics and fostered a high-performing, collaborative team environment.</li>
+            </ul>
+          </li>
+          <li class="role">
+            <h3>Google Search Language Specialist</h3>
+            <p class="meta"><span class="org">Qualitest</span><span>Jul 2019 to Dec 2019</span></p>
+            <ul>
+              <li>Developed and tested localisation grammar, improving query parsing and content retrieval accuracy for target locales.</li>
+              <li>Diagnosed query failures, implementing fixes within scope and driving broader solutions with engineering teams.</li>
+              <li>Advanced the underlying language model by engineering new syntactic structures driven by product-team use cases.</li>
+              <li>Quickly became a go-to contributor and was tapped for a Team Lead role within five months (first internal promotion site-wide).</li>
+            </ul>
+          </li>
+          <li class="role">
+            <h3>Apple Fraud Prevention Specialist</h3>
+            <p class="meta"><span class="org">Arvato Bertelsmann</span><span>Oct 2018 to May 2019</span></p>
+            <ul>
+              <li>Flagged and audited high-risk transactions to prevent fraud exposure and revenue loss.</li>
+              <li>Evaluated behavioural and transactional data to make precise, compliance-driven adjudications.</li>
+            </ul>
+          </li>
+          <li class="role">
+            <h3>Ubisoft Technical Support Agent</h3>
+            <p class="meta"><span class="org">Arvato Bertelsmann</span><span>Mar 2017 to Oct 2018</span></p>
+            <ul>
+              <li>Performed advanced troubleshooting for a leading global gaming publisher, applying deep knowledge of diverse platforms and services.</li>
+              <li>Named in the end credits of select Ubisoft titles, acknowledging personal contributions.</li>
+            </ul>
+          </li>
+          <li class="role">
+            <h3>Apple Technical Support Agent</h3>
+            <p class="meta"><span class="org">Sellbytel</span><span>Feb 2015 to Mar 2017</span></p>
+            <ul>
+              <li>Provided Tier 2 technical support across the full Apple ecosystem (macOS, iOS, Apple TV, Apple Watch, Beats, Pro Apps).</li>
+              <li>Consistently met Apple's stringent KPIs for resolution time and customer satisfaction, surpassing industry standards.</li>
+              <li>Achieved top marks in proprietary Apple certifications, demonstrating rapid mastery of complex systems.</li>
+            </ul>
+          </li>
+          <li class="role">
+            <h3>Language Services Provider</h3>
+            <p class="meta"><span class="org">Freelance</span><span>2006 to 2019, alongside other roles</span></p>
+            <ul>
+              <li>Produced high-level translations and edits of medical, technical and literary documentation.</li>
+              <li>Maintained long-term client partnerships, reflecting trust in the quality and autonomy of delivered work.</li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="block" id="education" aria-labelledby="h-edu">
+      <div class="grid">
+        <h2 id="h-edu">Education</h2>
+        <div class="edu">
+          <div>
+            <h3>Language, Literature and Culture (Modern Languages)</h3>
+            <p class="meta"><span class="org">Faculdade de Letras da Universidade de Lisboa</span><span>2007 to 2010</span></p>
+            <p>Interdisciplinary degree emphasising linguistic analysis, literary criticism, translation and cross-cultural communication.</p>
+          </div>
+          <div>
+            <h3>Access HE Business Programme</h3>
+            <p class="meta"><span class="org">Harlow College, Essex (UK)</span><span>2003 to 2004</span></p>
+            <p>Preparatory programme covering business fundamentals (management, marketing and economics) with a focus on analytical and study skills.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="skills" aria-labelledby="h-skills">
+      <div class="grid">
+        <h2 id="h-skills">Skills</h2>
+        <div class="skills">
+          <div>
+            <h3>Languages</h3>
+            <ul class="langs">
+              <li>Portuguese <span>Native</span></li>
+              <li>English <span>Bilingual</span></li>
+              <li>Spanish <span>Conversational</span></li>
+              <li>French <span>Reading proficiency</span></li>
+            </ul>
+          </div>
+          <div>
+            <h3>Linguistics</h3>
+            <ul class="tags">
+              <li>Computational linguistics (l10n/i18n)</li>
+              <li>Query parsing</li>
+              <li>Data consolidation</li>
+              <li>Semantic analysis</li>
+              <li>Technical translation and editing</li>
+            </ul>
+          </div>
+          <div class="wide">
+            <h3>Software</h3>
+            <ul class="tags">
+              <li>Google Workspace</li>
+              <li>macOS and Windows</li>
+              <li>CAT tools</li>
+              <li>Adobe Acrobat</li>
+              <li>Photoshop</li>
+              <li>NLP infrastructure and debugging tools</li>
+              <li>HTML, CSS and JavaScript (foundational)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" aria-labelledby="h-before">
+      <div class="grid">
+        <h2 id="h-before">Before tech</h2>
+        <div class="before">
+          <div>
+            <h3>Hostel co-director, Lisboa</h3>
+            <p class="meta"><span>2008 to 2011</span></p>
+            <p>Co-directed the launch and operational oversight of an award-winning hostel in downtown Lisboa, taking the business from pioneering concept to full profitability.</p>
+          </div>
+          <div>
+            <h3>Culinary professional</h3>
+            <p class="meta"><span>2003 to 2008</span></p>
+            <p>Built resilience and performance under pressure across multiple kitchen roles, from pubs and fine dining in England to beachside seafood in the Algarve.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="wrap">
+    <section class="block contact" id="contact" aria-labelledby="h-contact">
+      <h2 id="h-contact">Let's talk.</h2>
+      <a class="mail" href="mailto:ipinteus@gmail.com">ipinteus@gmail.com</a>
+      <p>Or find me on <a href="https://www.linkedin.com/in/ipinteus" rel="noopener">LinkedIn</a>.</p>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="year">2026</span> Ivo C. Pintéus</span>
+    <span>Cascais, Portugal</span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
