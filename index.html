@@ -7,7 +7,7 @@
 <meta name="description" content="Ivo C. Pintéus: linguist, technologist and team lead. Built and led NLP workflows and cross-functional teams at Google scale. Based in Cascais, Portugal.">
 <meta name="theme-color" content="#111214">
 <meta property="og:title" content="Ivo C. Pintéus">
-<meta property="og:description" content="I love language. Linguistics, technology and leadership.">
+<meta property="og:description" content="I love language. Linguistics, technology, and leadership.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://ipinteus.com/">
 <link rel="canonical" href="https://ipinteus.com/">
@@ -23,7 +23,7 @@
   "@type": "Person",
   "name": "Ivo C. Pintéus",
   "url": "https://ipinteus.com/",
-  "email": "mailto:ipinteus@gmail.com",
+  "email": "mailto:ipinteus@ipinteus.com",
   "sameAs": ["https://www.linkedin.com/in/ipinteus"],
   "address": { "@type": "PostalAddress", "addressLocality": "Cascais", "addressCountry": "PT" },
   "knowsLanguage": ["pt", "en", "es", "fr"],
@@ -73,81 +73,146 @@
   @media (max-width: 600px) { .nav li.opt { display: none; } }
 
   /* Hero */
-  .hero { position: relative; display: flex; flex-direction: column; min-height: calc(100svh - var(--nav-h)); overflow: hidden; }
-  .stage { position: relative; flex: 1 1 auto; min-height: calc(var(--pw) * 1.22); }
+  .hero {
+    position: relative;
+    height: calc(100dvh - var(--nav-h));
+    min-height: 580px; /* safety floor for short laptop screens */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+  }
+  .stage {
+    position: relative;
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    max-width: 1200px;
+    width: 100%;
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+  }
 
   /* Tilted portrait: the photo stays upright, a rotated rectangle is cut out of it */
   .portrait {
-    position: absolute; top: 0; left: clamp(.5rem, 3vw, 3rem); margin: 0;
-    width: var(--pw); aspect-ratio: 825 / 1024;
-    clip-path: polygon(21.7% 2.3%, 99.9% 15.7%, 78.3% 97.7%, 0.1% 84.3%);
+    position: relative;
+    top: auto;
+    left: auto;
+    margin: 0;
+    height: min(62vh, 520px);
+    aspect-ratio: 825 / 1024;
+    clip-path: polygon(8% 0%, 100% 12%, 68% 100%, 0% 92%);
     background: linear-gradient(160deg, #26292D, #15171A);
-    display: grid; place-items: center;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
     animation: slide .9s cubic-bezier(.2,.7,.2,1) both;
   }
-  .portrait .initials { grid-area: 1 / 1; font-size: clamp(4rem, 9vw, 7rem); font-weight: 700; color: rgba(255,255,255,.25); letter-spacing: -.04em; }
+  .portrait .initials {
+    grid-area: 1 / 1;
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 700;
+    color: rgba(255,255,255,.25);
+  }
   .portrait img {
-    grid-area: 1 / 1; width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block;
+    grid-area: 1 / 1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
   }
 
-  .intro { 
-    position: absolute; 
-    left: clamp(340px, 40vw, 560px); 
-    top: 55%; 
-    transform: translateY(-50%); 
-    width: min(26rem, 40vw); 
-    margin: 0; 
-    font-size: 1.15rem; 
-    font-weight: 300; 
-    line-height: 1.55; 
-    color: var(--ink); 
-    animation: rise .8s .25s cubic-bezier(.2,.7,.2,1) both; 
+  .intro {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    transform: none;
+    margin: 0 0 0 clamp(2rem, 5vw, 6rem);
+    max-width: 32ch;
+    font-size: clamp(1.05rem, 1.4vw, 1.3rem);
+    font-weight: 300;
+    line-height: 1.6;
+    color: var(--text);
+    animation: rise .8s .25s cubic-bezier(.2,.7,.2,1) both;
   }
-  .intro strong { color: var(--accent); font-weight: 700; }
+
+  .intro strong {
+    color: var(--accent);
+    font-weight: 500;
+  }
 
   .headline {
-    position: relative;
-    z-index: 2;
-    margin-top: clamp(-7rem, -10vw, -4rem); /* pulls the headline up over the photo bottom */
-    margin-bottom: 0; 
-    padding: 0 var(--gutter); 
-    text-align: center;
-    font-size: clamp(2.7rem, 8.4vw, 8rem); 
-    line-height: 1.05; 
-    letter-spacing: -.035em;
-    font-weight: 500; 
+    margin: 0;
+    /* Lift it higher off the bottom fold: */
+    padding: 0 var(--gutter) clamp(6rem, 12vh, 9rem);
+    
+    /* Indent so it lines up under the intro text rather than the left wall: */
+    padding-left: clamp(1.25rem, calc(var(--pw) + 4rem), 32rem);
+    
+    text-align: left;
+    max-width: 1200px;
+    width: 100%;
+    margin-inline: auto;
+    font-size: clamp(2.5rem, 6.5vw, 5.5rem);
+    line-height: 1;
+    letter-spacing: -.03em;
+    font-weight: 500;
     color: var(--ink);
     animation: rise .8s .15s cubic-bezier(.2,.7,.2,1) both;
   }
-  .headline .accent { color: var(--accent); font-weight: 700; }
+  .headline .accent {
+    color: var(--accent);
+    font-weight: 700;
+  }
 
-  .hero-foot { display: flex; flex-direction: column; align-items: center; gap: 1rem; padding: 1rem var(--gutter) 2rem; font-size: .85rem; color: var(--muted); }
-  .hero-foot p { margin: 0; }
-  .hero-foot a { text-decoration: none; }
-  .hero-foot .email a:hover { color: var(--accent); }
-  .rail { display: flex; align-items: center; gap: 1rem; }
-  .rail .label { font-size: .8rem; letter-spacing: .08em; }
-  .rail .line { display: none; width: 1px; height: 44px; background: var(--ink); }
-  .rail .icons { display: flex; gap: 1rem; }
+.rail {
+    position: fixed;
+    right: 1.75rem;
+    bottom: 2rem;
+    z-index: 60;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  .rail .label { font-size: .8rem; letter-spacing: .08em; writing-mode: vertical-rl; color: var(--muted); }
+  .rail .line { display: block; width: 1px; height: 44px; background: var(--ink); }
+  .rail .icons { display: flex; flex-direction: column; gap: 1rem; }
   .rail a { display: grid; place-items: center; color: var(--muted); transition: color .15s, transform .15s; }
   .rail a:hover { color: var(--accent); transform: translateY(-2px); }
   .rail svg { width: 20px; height: 20px; fill: currentColor; }
 
-  @media (min-width: 1024px) {
-    .rail { position: absolute; right: 1.75rem; bottom: 2.5rem; flex-direction: column; }
-    .rail .label { writing-mode: vertical-rl; }
-    .rail .line { display: block; }
-    .rail .icons { flex-direction: column; }
-  }
-  @media (min-width: 1280px) {
-    .hero-foot .email { position: absolute; left: var(--gutter); bottom: 2.5rem; }
+  /* Hide the vertical side rail on smaller touch screens to avoid blocking text */
+  @media (max-width: 859px) {
+    .rail { display: none; }
   }
 
   @media (max-width: 859px) {
-    .stage { min-height: 0; display: flex; flex-direction: column; align-items: center; padding-top: 1rem; }
-    .portrait { position: relative; left: auto; width: min(430px, 100%); margin-bottom: -2rem; }
-    .intro { position: static; top: auto; transform: none; width: min(30rem, 100% - 2 * var(--gutter)); text-align: center; margin: 1rem auto 1.5rem; }
-    .headline { margin-top: 1rem; }
+    .hero {
+      height: auto;
+      min-height: calc(100svh - var(--nav-h));
+      padding-bottom: 2rem;
+    }
+    .stage {
+      flex-direction: column;
+      justify-content: center;
+      padding-top: 1.5rem;
+    }
+    .portrait {
+      height: auto;
+      width: min(320px, 80vw);
+      margin-bottom: 1.5rem;
+    }
+    .intro {
+      margin: 0 auto 2rem;
+      text-align: center;
+    }
+    .headline {
+      text-align: center;
+      padding-left: var(--gutter); /* resets the desktop left indent */
+      padding-bottom: 2rem;
+    }
   }
 
   @keyframes slide { from { opacity: 0; transform: translateY(28px); } }
@@ -233,14 +298,14 @@
 
 <header class="nav">
   <div class="wrap">
-    <a class="brand" href="#top">Ivo C. <b>Pintéus</b></a>
+    <a class="brand" href="#top"><b>Ivo</b> C. Pintéus</a>
     <nav aria-label="Sections">
       <ul>
-        <li class="opt"><a href="#about">About</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li class="opt"><a href="#education">Education</a></li>
-        <li class="opt"><a href="#skills">Skills</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li class="opt"><a href="#about">About ▼</a></li>
+        <li><a href="#experience">Experience ▼</a></li>
+        <li class="opt"><a href="#education">Education ▼</a></li>
+        <li class="opt"><a href="#skills">Skills ▼</a></li>
+        <li><a href="#contact">Contact ▼</a></li>
       </ul>
     </nav>
   </div>
@@ -256,33 +321,30 @@
       <p class="intro">Hello, I'm <strong>Ivo C. Pintéus</strong>, a linguist and technology team lead based in Cascais, Portugal.</p>
     </div>
 
-    <h1 class="headline"><span class="sr-only">Ivo C. Pintéus. </span>I love <span class="accent">language</span></h1>
-
-    <div class="hero-foot">
-      <p class="email">E: <a href="mailto:ipinteus@gmail.com">ipinteus@gmail.com</a></p>
-      <div class="rail">
-        <span class="label">Follow me</span>
-        <span class="line" aria-hidden="true"></span>
-        <div class="icons">
-          <a href="https://www.linkedin.com/in/ipinteus" rel="noopener" aria-label="LinkedIn">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.22 8h4.56v14H.22V8zm7.44 0h4.37v1.92h.06c.61-1.15 2.1-2.36 4.32-2.36 4.62 0 5.47 3.04 5.47 6.99V22h-4.56v-6.5c0-1.55-.03-3.55-2.16-3.55-2.17 0-2.5 1.69-2.5 3.44V22H7.66V8z"/></svg>
-          </a>
-          <a href="mailto:ipinteus@gmail.com" aria-label="Email">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 5.5A1.5 1.5 0 0 1 3.5 4h17A1.5 1.5 0 0 1 22 5.5v13a1.5 1.5 0 0 1-1.5 1.5h-17A1.5 1.5 0 0 1 2 18.5v-13zm2.2.5L12 11.9 19.8 6H4.2zM20 7.9l-7.4 5.6a1 1 0 0 1-1.2 0L4 7.9V18h16V7.9z"/></svg>
-          </a>
-          <a href="Ivo-Pinteus-CV.pdf" download aria-label="Download CV as PDF">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 3h2v9.17l3.59-3.58L18 10l-6 6-6-6 1.41-1.41L11 12.17V3zM5 18h14v2H5v-2z"/></svg>
-          </a>
-        </div>
-      </div>
-    </div>
+    <h1 class="headline"><span class="sr-only">Ivo C. Pintéus. </span>I love <span class="accent">language.</span></h1>
   </section>
+
+  <aside class="rail" aria-label="Social and contact links">
+    <span class="label">Get in touch with me</span>
+    <span class="line" aria-hidden="true"></span>
+    <div class="icons">
+      <a href="https://www.linkedin.com/in/ipinteus" rel="noopener" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.22 8h4.56v14H.22V8zm7.44 0h4.37v1.92h.06c.61-1.15 2.1-2.36 4.32-2.36 4.62 0 5.47 3.04 5.47 6.99V22h-4.56v-6.5c0-1.55-.03-3.55-2.16-3.55-2.17 0-2.5 1.69-2.5 3.44V22H7.66V8z"/></svg>
+      </a>
+      <a href="mailto:ipinteus@ipinteus.com" aria-label="Email">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 5.5A1.5 1.5 0 0 1 3.5 4h17A1.5 1.5 0 0 1 22 5.5v13a1.5 1.5 0 0 1-1.5 1.5h-17A1.5 1.5 0 0 1 2 18.5v-13zm2.2.5L12 11.9 19.8 6H4.2zM20 7.9l-7.4 5.6a1 1 0 0 1-1.2 0L4 7.9V18h16V7.9z"/></svg>
+      </a>
+      <a href="Ivo-Pinteus-CV.pdf" download aria-label="Download CV as PDF">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 3h2v9.17l3.59-3.58L18 10l-6 6-6-6 1.41-1.41L11 12.17V3zM5 18h14v2H5v-2z"/></svg>
+      </a>
+    </div>
+  </aside>
 
   <section class="block" id="about" aria-labelledby="h-about">
     <div class="wrap split">
       <div class="head">
-        <p class="eyebrow">About</p>
-        <h2 id="h-about">Profile</h2>
+        <p class="eyebrow">Who am I?</p>
+        <h2 id="h-about">About</h2>
       </div>
       <div class="about">
         <p>Versatile, results-driven professional at the critical intersection of <strong>linguistics</strong>, <strong>technology</strong> and <strong>leadership</strong>.</p>
@@ -293,8 +355,8 @@
 
   <section class="block" id="experience" aria-labelledby="h-exp">
     <div class="wrap">
-      <p class="eyebrow">My experience</p>
-      <h2 class="sec-title" id="h-exp">Where I've worked</h2>
+      <p class="eyebrow">What have I been doing?</p>
+      <h2 class="sec-title" id="h-exp">Experience</h2>
 
       <article class="job">
         <div class="job-head">
@@ -377,7 +439,7 @@
   <section class="block alt" id="education" aria-labelledby="h-edu">
     <div class="wrap split">
       <div class="head">
-        <p class="eyebrow">Learning</p>
+        <p class="eyebrow">What have I learned?</p>
         <h2 id="h-edu">Education</h2>
       </div>
       <div class="stack">
@@ -389,7 +451,7 @@
         <div class="item">
           <h3>Access HE Business Programme</h3>
           <p class="sub"><span class="org">Harlow College, Essex (UK)</span><span>2003 to 2004</span></p>
-          <p>Preparatory programme covering business fundamentals (management, marketing and economics) with a focus on analytical and study skills.</p>
+          <p>Preparatory programme covering business fundamentals (management, marketing and economics) with a focus on data-driven analytics.</p>
         </div>
       </div>
     </div>
@@ -398,7 +460,7 @@
   <section class="block" id="skills" aria-labelledby="h-skills">
     <div class="wrap split">
       <div class="head">
-        <p class="eyebrow">Toolkit</p>
+        <p class="eyebrow">What can I do?</p>
         <h2 id="h-skills">Skills</h2>
       </div>
       <div class="grid2">
@@ -411,26 +473,59 @@
             <li>French <span>Reading proficiency</span></li>
           </ul>
         </div>
-        <div>
-          <h3>Linguistics</h3>
+        <div class="wide">
+          <h3>Project & Delivery</h3>
           <ul class="tags">
-            <li>Computational linguistics (l10n/i18n)</li>
-            <li>Query parsing</li>
-            <li>Data consolidation</li>
-            <li>Semantic analysis</li>
-            <li>Technical translation and editing</li>
+            <li>Agile + Scrum</li>
+            <li>Sprint Planning</li>
+            <li>Scope Management</li>
+            <li>Resource Allocation</li>
+            <li>Risk Mitigation</li>
+          </ul>
+        </div>
+        <div class="wide">          
+          <h3>People & Leadership</h3>
+          <ul class="tags">
+            <li>Full-cycle Hiring</li>
+            <li>Onboarding + Offboarding</li>
+            <li>Training + Mentorship</li>
+            <li>Performance Management</li>
+          </ul>
+        </div>
+        <div class="wide">          
+          <h3>Partners & Operations</h3>
+          <ul class="tags">
+            <li>Vendor/Client Coordination</li>
+            <li>Workflow Optimization</li>
+            <li>Quality Assurance</li>
+            <li>Team SLAs</li>
           </ul>
         </div>
         <div class="wide">
-          <h3>Software</h3>
+          <h3>Computational & NLP</h3>
           <ul class="tags">
-            <li>Google Workspace</li>
-            <li>macOS and Windows</li>
-            <li>CAT tools</li>
-            <li>Adobe Acrobat</li>
-            <li>Photoshop</li>
-            <li>NLP infrastructure and debugging tools</li>
-            <li>HTML, CSS and JavaScript (foundational)</li>
+            <li>Semantic Analysis</li>
+            <li>Query Parsing</li>
+            <li>Corpus Management</li>
+            <li>Prompt Engineering</li>
+            <li>Linguistic Annotation</li>
+          </ul>
+        </div>
+        <div class="wide">          
+          <h3>Localization & Translation</h3>
+          <ul class="tags">
+            <li>l10n + i18n</li>
+            <li>Technical Translation</li>
+            <li>Terminology Management</li>
+          </ul>
+        </div>
+        <div class="wide">          
+          <h3>Editorial & Quality</h3>
+          <ul class="tags">
+            <li>Copywriting</li>
+            <li>Copyediting</li>
+            <li>Proofreading</li>
+            <li>Content Evaluation</li>
           </ul>
         </div>
       </div>
@@ -440,19 +535,24 @@
   <section class="block alt" aria-labelledby="h-before">
     <div class="wrap split">
       <div class="head">
-        <p class="eyebrow">Earlier chapters</p>
-        <h2 id="h-before">Before tech</h2>
+        <p class="eyebrow">And before tech?</p>
+        <h2 id="h-before">Earlier XP</h2>
       </div>
       <div class="stack">
         <div class="item">
-          <h3>Hostel co-director, Lisboa</h3>
+          <h3>Hostel Director, Lisboa</h3>
           <p class="sub"><span>2008 to 2011</span></p>
-          <p>Co-directed the launch and operational oversight of an award-winning hostel in downtown Lisboa, taking the business from pioneering concept to full profitability.</p>
+          <p>Helped launch one of the first and most awarded hostels in downtown Lisboa, leading operations from early concept to full profitability.</p>
         </div>
         <div class="item">
-          <h3>Culinary professional</h3>
+          <h3>Cook, England and Algarve</h3>
           <p class="sub"><span>2003 to 2008</span></p>
-          <p>Built resilience and performance under pressure across multiple kitchen roles, from pubs and fine dining in England to beachside seafood in the Algarve.</p>
+          <p>Learned speed, resilience and composure under pressure in professional kitchen roles, from pubs in Essex and fine dining in Hertfordshire to beachside seafood in the Algarve.</p>
+        </div>
+        <div class="item">
+          <h3>Builder, Monte Estoril</h3>
+          <p class="sub"><span>1999</span></p>
+          <p>Spent that summer on a construction site. Whenever I drive past the balcony I helped build, I feel a tinge of pride.</p>
         </div>
       </div>
     </div>
@@ -461,10 +561,10 @@
   <section class="block contact" id="contact" aria-labelledby="h-contact">
     <div class="wrap">
       <p class="eyebrow">Contact</p>
-      <h2 id="h-contact">Let's talk.</h2>
-      <p class="closing">I'm ready for roles where tech, language and operational expertise collide to create real-world impact.</p>
-      <a class="mail" href="mailto:ipinteus@gmail.com">ipinteus@gmail.com</a>
-      <p class="more">Or find me on <a href="https://www.linkedin.com/in/ipinteus" rel="noopener">LinkedIn</a>.</p>
+      <h2 id="h-contact">Let's talk shop.</h2>
+      <p class="closing">I'm at my best where tech, language, and operations overlap.</p>
+      <a class="mail" href="mailto:ipinteus@ipinteus.com">ipinteus@ipinteus.com</a>
+      <p class="more">Or reach out on <a href="https://www.linkedin.com/in/ipinteus" rel="noopener">LinkedIn</a>.</p>
     </div>
   </section>
 </main>
