@@ -34,7 +34,7 @@
 <style>
   :root {
     --ink: #1B1D20;
-    --dark: #17191C;
+    --dark: #0F1F3D;   /* was #17191C */
     --muted: #5D646B;
     --line: #E4E7EA;
     --soft: #F3F4F5;
@@ -87,6 +87,7 @@
     position: relative; z-index: 2; margin: 0;
     width: clamp(240px, 22vw, 320px); aspect-ratio: 5 / 7;
     margin-right: clamp(-8rem, -8vw, -5rem);
+    border: clamp(8px, 1vw, 14px) solid var(--dark);
     box-shadow: 0 40px 70px -20px rgba(0,0,0,.45);
     background: linear-gradient(160deg, #1E8F7B 0%, #0E4A44 100%);
     display: grid; place-items: center; overflow: hidden;
