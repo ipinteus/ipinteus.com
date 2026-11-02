@@ -235,15 +235,60 @@
   .about strong { color: var(--accent); font-weight: 500; }
 
   .job { border-top: 1px solid var(--line); padding-block: 1.75rem 2.25rem; }
-  .job-head { display: grid; gap: .25rem 2rem; margin-bottom: 1rem; }
-  .job .co { margin: 0; font-size: 1.15rem; font-weight: 700; color: var(--ink); }
-  .job .rl { margin: 0; font-size: .8rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); align-self: center; }
-  .job .dt { margin: 0; font-size: .95rem; color: var(--muted); }
+  .job-head {
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+    margin-bottom: 1rem;
+  }
+  .job .co { 
+    margin: 0; 
+    font-size: 1.15rem; 
+    font-weight: 700; 
+    color: var(--ink); 
+  }
+  .job .rl { 
+    margin: 0; 
+    font-size: .8rem; 
+    font-weight: 700; 
+    letter-spacing: .14em; 
+    text-transform: uppercase; 
+    color: var(--accent); 
+  }
+  .job .dt { 
+    margin: 0; 
+    font-size: .95rem; 
+    color: var(--muted); 
+  }
   .job ul { margin: 0; padding-left: 1.1rem; max-width: 70ch; }
   .job li { margin-bottom: .5rem; }
   .job li::marker { color: var(--accent); }
+
+  /* Desktop alignment */
   @media (min-width: 760px) {
-    .job-head { grid-template-columns: 1.1fr 1.5fr auto; align-items: baseline; }
+    .job-head {
+      display: grid;
+      /* Two balanced columns: title info on the left, date pinned on the right */
+      grid-template-columns: 1fr auto;
+      align-items: baseline;
+      gap: .5rem 1.5rem;
+    }
+
+    /* Wraps company and role on the left so they stay tied together */
+    .job-head .co {
+      grid-column: 1;
+    }
+    
+    .job-head .rl {
+      grid-column: 1;
+      margin-top: .15rem;
+    }
+    
+    .job-head .dt {
+      grid-column: 2;
+      grid-row: 1;
+      text-align: right;
+    }
     .job .dt { text-align: right; }
   }
 
@@ -355,7 +400,7 @@
         <p>I take Wittgenstein's premise seriously:<br>"<em>The limits of my language mean the limits of my world</em> ".<br>When the underlying language data is sloppy, even the best engineering hits an early ceiling.</p>
         <p>That's where I step in: at the crossroads of <strong>linguistics</strong>, <strong>technology</strong>, and <strong>leadership</strong>.</p>
         <p>In practice, this meant stress-testing and optimizing NLP pipelines at Google scale, crafting grammar models to parse live user queries, and guiding cross-functional crews across several time zones.</p>
-        <p>The endgame is always the same: turn the chaos of organic language input into consistent, accurate output.</p>
+        <p>Ultimately, it comes down to turning the chaos of organic language input into consistent, accurate output.</p>
       </div>
     </div>
   </section>
@@ -367,8 +412,20 @@
 
       <article class="job">
         <div class="job-head">
+          <h3 class="co">Sabbatical</h3>
+          <p class="rl">Full-time Dad & Part-time Investor</p>
+          <p class="dt">Sep 2024 to now</p>
+        </div>
+        <ul>
+          <li>Stepped away to raise my kid as a stay-at-home, and manage a personal ETF portfolio.</li>
+          <li>The boy is potty-trained and the markets are red. I'm ready to jump back in.</li>
+        </ul>
+      </article>
+
+      <article class="job">
+        <div class="job-head">
           <h3 class="co">Qualitest</h3>
-          <p class="rl">Google SLS Team Lead</p>
+          <p class="rl">Google Search Language Specialist Team Lead</p>
           <p class="dt">Dec 2019 to Sep 2024</p>
         </div>
         <ul>
@@ -433,11 +490,11 @@
         <div class="job-head">
           <h3 class="co">Freelance</h3>
           <p class="rl">Language Services Provider</p>
-          <p class="dt">2006 to 2019, alongside other roles</p>
+          <p class="dt">2006 to 2019, 2026</p>
         </div>
         <ul>
-          <li>Produced high-level translations and edits of medical, technical and literary documentation.</li>
-          <li>Maintained long-term client partnerships, reflecting trust in the quality and autonomy of delivered work.</li>
+          <li>Produced high-level translations and edits of technical, medical, and literary documentation.</li>
+          <li>Maintained long-term client partnerships (Netgreen Developments, ), reflecting trust in the quality and autonomy of delivered work.</li>
         </ul>
       </article>
     </div>
